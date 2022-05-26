@@ -14,12 +14,13 @@ GET {{api}}/api/login/existUser
 Content-Type: application/json
 
 {
-    "username": "natafridman",
+    "username": "natafridman4",
     "password": "Nata123!"
 }
 
 ### Ver todos los usuarios
 GET {{api}}/api/login/getAllUsers
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzU5NDU0OSwiZXhwIjoxNjUzNTk4MTQ5fQ.mEmZpyHLE9dO87IlWaNlp6nsOvC4S9R1TRPCt5Ndp5I
 
 ### Login
 POST {{api}}/api/login
@@ -28,4 +29,13 @@ Content-Type: application/json
 {
     "username": "natafridman4",
     "password": "1234"
+}
+
+### Update User
+PUT {{api}}/api/login/updateUser/628d22a3fe831e5c09e1756f
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzU5Mjk0MSwiZXhwIjoxNjUzNTk2NTQxfQ.IRT-Lk1IZEE5c-6-bn5uZyBxgee_mRjWMeh0GfSRBhg
+
+{
+    "role": "admin"
 }

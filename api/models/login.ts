@@ -8,7 +8,13 @@ const loginSchema = new Schema({
     },
     password: {
         type: String,
-        trim: true
+        trim: true,
+        select: false
+    },
+    role: {
+        type: String,
+        trim: true,
+        default: 'user'
     }
 }, {
     versionKey: false,
