@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ### Ver todos los usuarios
 GET {{api}}/api/login/getAllUsers
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzU5NDU0OSwiZXhwIjoxNjUzNTk4MTQ5fQ.mEmZpyHLE9dO87IlWaNlp6nsOvC4S9R1TRPCt5Ndp5I
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2MTUzMywiZXhwIjoxNjUzNjY1MTMzfQ.t8L7Pay8HLZSyQl6S_qNxZec5XypAMO74yojIsnB5JE
 
 ### Login
 POST {{api}}/api/login
@@ -32,10 +32,48 @@ Content-Type: application/json
 }
 
 ### Update User
-PUT {{api}}/api/login/updateUser/628d22a3fe831e5c09e1756f
+PUT {{api}}/api/login/updateUser/628d28b1e2996c7896651f31
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzU5Mjk0MSwiZXhwIjoxNjUzNTk2NTQxfQ.IRT-Lk1IZEE5c-6-bn5uZyBxgee_mRjWMeh0GfSRBhg
 
 {
     "role": "admin"
 }
+
+### Delete User
+DELETE {{api}}/api/login/deleteUser/628d28e1396599a0e33438a8
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2MTUzMywiZXhwIjoxNjUzNjY1MTMzfQ.t8L7Pay8HLZSyQl6S_qNxZec5XypAMO74yojIsnB5JE
+
+### Crear post
+POST {{api}}/api/post/createPost
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2NTY0NCwiZXhwIjoxNjUzNjY5MjQ0fQ.bd0H0mII7Tz_J22W1hC7Ka3KyKQQLeZ6mXRo1Eiiqs0
+
+{
+    "created_by": "628d22a3fe831e5c09e1756f",
+    "description": "hola mundo, este es mi primer post 4"
+}
+
+### Ver todos los posts
+GET {{api}}/api/post/getAllPosts?withComments=true
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2NTY0NCwiZXhwIjoxNjUzNjY5MjQ0fQ.bd0H0mII7Tz_J22W1hC7Ka3KyKQQLeZ6mXRo1Eiiqs0
+
+### Likear post
+PUT {{api}}/api/post/likePost/6290f7509a51ab1eb598de52
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2NTY0NCwiZXhwIjoxNjUzNjY5MjQ0fQ.bd0H0mII7Tz_J22W1hC7Ka3KyKQQLeZ6mXRo1Eiiqs0
+
+### Crear comentario de un post
+POST {{api}}/api/comment/createComment/6290f8114c1c95ef5d164173
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2NTY0NCwiZXhwIjoxNjUzNjY5MjQ0fQ.bd0H0mII7Tz_J22W1hC7Ka3KyKQQLeZ6mXRo1Eiiqs0
+
+{
+    "created_by": "628d22a3fe831e5c09e1756f",
+    "description": "este es un comentario 4"
+}
+
+### Ver todos los comentarios
+GET {{api}}/api/comment/getAllComments
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5hdGFmcmlkbWFuNCIsInVzZXJJRCI6IjYyOGQyN2Y0MDIyNmQyMWI1MTIwZTM3OSIsImlhdCI6MTY1MzY2NTY0NCwiZXhwIjoxNjUzNjY5MjQ0fQ.bd0H0mII7Tz_J22W1hC7Ka3KyKQQLeZ6mXRo1Eiiqs0

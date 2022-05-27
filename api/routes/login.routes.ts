@@ -10,10 +10,10 @@ function getMiddleware(req:Request, res:Response, next:NextFunction) {
     next()
 }
 
-router.get('/api/login/existUser', loginController.existsUser)
 router.post('/api/login/createUser', loginController.createUser)
-router.get('/api/login/getAllUsers', authorizationRole('admin'), loginController.getAllUsers)
+router.get('/api/login/getAllUsers', authorizationRole('user'), loginController.getAllUsers)
 router.post('/api/login', loginController.login)
 router.put('/api/login/updateUser/:id', authorization, loginController.updateUser)
+router.delete('/api/login/deleteUser/:id', authorization, loginController.deleteUser)
 
 export default router

@@ -1,26 +1,7 @@
 import {RequestHandler} from 'express'
 import Login from '../models/login'
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
-import config from '../config'
 import { signToken } from '../utils'
-
-// Reviso si dado un username y password existe el usuario en la base o no
-export const existsUser : RequestHandler = async (req, res) => {
-    try {
-        const usuarioExistente = await Login.findOne({
-            username: req.body.username,
-            password: req.body.password
-        })
-
-        if(!usuarioExistente) 
-            return res.status(404).json({message: 'The user does not exist'})
-        
-        return res.json(usuarioExistente)
-    } catch (error) {
-        res.json(error)
-    }
-}
 
 // Reviso si dado un username y password existe el usuario en la base o no
 export const login : RequestHandler = async (req, res) => {
@@ -100,5 +81,22 @@ export const updateUser : RequestHandler = async (req, res) => {
         return res.json(user)
     } catch (error) {
         return res.json(error)
+    }
+}
+
+// Eliminar usuario
+export const deleteUser : RequestHandler = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        const userDeleted = await Login.findByIdAndDelete({ _id: id })
+        
+        console.log(userDeleted)
+
+        return res.json({message: 'User deleted successfully'})
+    } catch (error:any) {
+        if(error.name === 'CastError') return res.json({message: 'The user could not be deleted because it could not be found'})
+
+        res.json(error)
     }
 }
