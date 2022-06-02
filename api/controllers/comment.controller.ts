@@ -1,9 +1,14 @@
 import {RequestHandler} from 'express'
 import Comment from '../models/comment'
 import Post from '../models/post'
+import GeneradorPDF from '../pdf_generator/pdf_generator'
 
 // Crear un nuevo post
 export const createComment : RequestHandler = async (req, res) => {
+
+    const new_pdf = GeneradorPDF();
+    return res.json({message: new_pdf});
+
     try {
         const { created_by, description } = req.body
         const { idPost } = req.params

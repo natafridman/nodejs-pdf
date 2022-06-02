@@ -42,7 +42,7 @@ export const getAllUsers : RequestHandler = async (req, res) => {
 // Request que sirve para crear un nuevo usuario (solo utilizado internamente)
 export const createUser : RequestHandler = async (req, res) => {
     try {
-        const username = req.body.username
+        const { username, name, surname } = req.body
         const usuarioExistente = await Login.findOne({
             username
         })
@@ -55,7 +55,9 @@ export const createUser : RequestHandler = async (req, res) => {
 
         const nuevoUsuario = await Login.create({
             username,
-            password: encryptedPassword
+            password: encryptedPassword,
+            name,
+            surname
         });
 
         if(!nuevoUsuario)

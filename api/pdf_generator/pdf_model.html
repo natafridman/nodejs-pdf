@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            margin: 100px;     
+            font-family: 'Lato', sans-serif;       
+        }
+
+        .title {
+            font-size: 60px;
+            text-shadow: 
+                2px 2px 0px rgb(8, 98, 110),
+                4px 4px 0px rgb(19, 228, 255);
+            margin: 10px;
+        }
+
+        .row-user {
+            background-color: rgba(19, 227, 255, 0.2);
+            border-radius: 25px;
+            box-shadow: 2px 2px 1px rgb(8, 98, 110, 0.6);
+            display: flex;
+            height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .img-user {
+            flex: 0.3;
+            padding: 10px;
+            max-width: 80px;
+            position: absolute;
+        }
+        
+        .container-user {
+            flex: 1;
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+            justify-content: right;
+            text-align: right;
+        }
+
+        .username {
+            font-size: 16px;
+            color: grey;
+            float: right;
+            margin-bottom: 0px;
+            margin-top: 10px;
+        }
+
+        .user-name-surname {
+            margin-top: 0px;
+            float: right;
+            font-size: 40px;
+        }
+    </style>
+  </head>
+  <body class="container">
+    <h1 class="title">Users</h1>
+    <div>   
+      {{#each users}}
+        <div class="row-user">
+            <img class="img-user" src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="user" />
+            <div class="container-user">
+                <small class="username">{{username}}</small>
+                <h1 class="user-name-surname">{{name}} {{surname}}</h1>
+            </div>
+        </div>
+      {{/each}}
+    </div>
+  </body>
+</html>

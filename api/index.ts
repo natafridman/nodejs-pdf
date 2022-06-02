@@ -24,6 +24,8 @@ app.use(loginRoutes)
 app.use(postRoutes)
 app.use(commentRoutes)
 
+app.use(express.static('public'));
+
 app.listen(app.get('port'), () => {
     console.log('Servidor en puerto ' + app.get('port'))
 })
